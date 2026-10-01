@@ -17,23 +17,27 @@ public partial class MainPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-
-        // StudentsCollection.ItemsSource =
+        
+        StudentsCollection.ItemsSource =
         await database.GetAll();
     }
 
-    private async void OnGuardarClicked(object sender, EventArgs e)
+    private async void OnSaveClicked(object sender, EventArgs e)
     {
         Student Student = new()
         {
-            name_student = NombreEntry.Text,
-            group = GrupoEntry.Text
+            name_student = nombreEntry.Text,
+            group_student = grupoEntry.Text,
+            rfc_student = rfcEntry.Text,
+            phone_num_student = phoneEntry.Text
         };
 
         await database.Save(Student);
 
-        NombreEntry.Text = "";
-        GrupoEntry.Text = "";
+        nombreEntry.Text = "";
+        grupoEntry.Text = "";
+        rfcEntry.Text = "";
+        phoneEntry.Text = "";
 
         // StudentsCollection.ItemsSource =
             await database.GetAll();

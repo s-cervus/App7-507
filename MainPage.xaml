@@ -7,24 +7,33 @@
     Spacing="10">
 
         <Label
-        Text="Agenda de Estudiantes"
-        FontSize="24"
-        HorizontalOptions="Center"/>
+            Text="Agenda de Estudiantes"
+            FontSize="24"
+            HorizontalOptions="Center"/>
 
         <Entry
-        x:Name="NombreEntry"
-        Placeholder="Nombre"/>
+            x:Name="nombreEntry"
+            Placeholder="Nombre"/>
 
         <Entry
-        x:Name="GrupoEntry"
-        Placeholder="Grupo"/>
+            x:Name="grupoEntry"
+            Placeholder="Grupo"/>
+
+        <Entry
+            x:Name="rfcEntry"
+            Placeholder="RFC"/>
+
+        <Entry
+            x:Name="phoneEntry"
+            Placeholder="Télefono"/>
+
 
         <Button
         Text="Guardar"
-        Clicked="OnGuardarClicked"/>
+        Clicked="OnSaveClicked"/>
 
         <CollectionView
-        x:Name="EstudiantesCollection">
+        x:Name="StudentsCollection">
 
             <CollectionView.ItemTemplate>
 
@@ -32,11 +41,13 @@
 
                     <VerticalStackLayout Padding="5">
 
-                        <Label
-                        Text="{Binding Nombre}"/>
+                        <Label Text="{Binding Nombre}"/>
 
-                        <Label
-                        Text="{Binding Grupo}"/>
+                        <Label Text="{Binding Grupo}"/>
+
+                        <Label Text="{Binding RFC}"/>
+
+                        <Label Text="{Binding Teléfono}"/>
 
                     </VerticalStackLayout>
 

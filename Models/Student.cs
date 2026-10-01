@@ -7,6 +7,8 @@ public class Student
     [PrimaryKey, AutoIncrement]
     public int ID_A { get; set; }
     public string name_student { get; set; }
-    public string group { get; set; }
+    public string group_student { get; set; }
+    public string rfc_student { get; set; }
+    public string phone_num_student { get; set; }
 }
 
