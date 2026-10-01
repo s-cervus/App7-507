@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App7_507.MainPage">
+    <VerticalStackLayout
+    Padding="20"
+    Spacing="10">
+
+        <Label
+        Text="Agenda de Estudiantes"
+        FontSize="24"
+        HorizontalOptions="Center"/>
+
+        <Entry
+        x:Name="NombreEntry"
+        Placeholder="Nombre"/>
+
+        <Entry
+        x:Name="GrupoEntry"
+        Placeholder="Grupo"/>
+
+        <Button
+        Text="Guardar"
+        Clicked="OnGuardarClicked"/>
+
+        <CollectionView
+        x:Name="EstudiantesCollection">
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <VerticalStackLayout Padding="5">
+
+                        <Label
+                        Text="{Binding Nombre}"/>
+
+                        <Label
+                        Text="{Binding Grupo}"/>
+
+                    </VerticalStackLayout>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </VerticalStackLayout>
+
+</ContentPage>
