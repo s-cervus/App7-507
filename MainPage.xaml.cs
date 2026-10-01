@@ -1,5 +1,7 @@
 ﻿using App7_507.Models;
 using App7_507.Services;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace App7_507;
 
@@ -24,6 +26,27 @@ public partial class MainPage : ContentPage
 
     private async void OnSaveClicked(object sender, EventArgs e)
     {
+        // string phone_i = phoneEntry.Text; int.TryParse(phone_i, out int convertedNUM);
+
+        if (phoneEntry == null || phoneEntry.Length != 10)
+        {
+            return;
+        }
+
+        
+        // ^ = inicio, \d = número, {10} = exactamente diez veces, $ = fin
+        if (!Regex.IsMatch(textoIngresado, @"^\d{10}$"))
+        {
+            
+            return;
+        }
+
+        
+        long numeroFinal = long.Parse(textoIngresado);
+
+        
+
+
         Student Student = new()
         {
             name_student = nombreEntry.Text,
@@ -39,7 +62,7 @@ public partial class MainPage : ContentPage
         rfcEntry.Text = "";
         phoneEntry.Text = "";
 
-        // StudentsCollection.ItemsSource =
+        StudentsCollection.ItemsSource =
             await database.GetAll();
     }
 }

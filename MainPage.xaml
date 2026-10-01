@@ -21,11 +21,14 @@
 
         <Entry
             x:Name="rfcEntry"
-            Placeholder="RFC"/>
+            Placeholder="RFC"
+            MaxLength="18"/>
 
         <Entry
             x:Name="phoneEntry"
-            Placeholder="Télefono"/>
+            Placeholder="Télefono"
+            Keyboard="Chat"
+            MaxLength="10"/>
 
 
         <Button
@@ -41,13 +44,13 @@
 
                     <VerticalStackLayout Padding="5">
 
-                        <Label Text="{Binding Nombre}"/>
+                        <Label Text="{Binding name_student}"/>
 
-                        <Label Text="{Binding Grupo}"/>
+                        <Label Text="{Binding group_student}"/>
 
-                        <Label Text="{Binding RFC}"/>
+                        <Label Text="{Binding rfc_student}"/>
 
-                        <Label Text="{Binding Teléfono}"/>
+                        <Label Text="{Binding phone_num_student}"/>
 
                     </VerticalStackLayout>
 
