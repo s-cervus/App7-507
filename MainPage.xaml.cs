@@ -28,6 +28,7 @@ public partial class MainPage : ContentPage
     {
         // string phone_i = phoneEntry.Text; int.TryParse(phone_i, out int convertedNUM);
 
+/*
         if (phoneEntry == null || phoneEntry.Length != 10)
         {
             return;
@@ -40,7 +41,7 @@ public partial class MainPage : ContentPage
             
             return;
         }
-
+*/
         
         long numeroFinal = long.Parse(textoIngresado);
 
