@@ -17,7 +17,7 @@
             RowDefinitions="*,*,*,*,*"
             RowSpacing="10"
             ColumnSpacing="5">
-            
+
 
             <Entry
                 x:Name="nombreEntry"
@@ -37,14 +37,14 @@
                 MaxLength="18"
                 Grid.Column="0"
                 Grid.Row="2"/>
-    
+
             <Entry
                 x:Name="phoneEntry"
                 Placeholder="Télefono"
                 Keyboard="Chat"
                 MaxLength="10"
                 Grid.Column="0"
-                Grid.Row="3"/>                
+                Grid.Row="3"/>
 
 
             <Button
@@ -66,13 +66,9 @@
                 Grid.Row="2"/>
         </Grid>
 
-        <CollectionView
-        x:Name="StudentsCollection">
-
+        <CollectionView x:Name="StudentsCollection">
             <CollectionView.ItemTemplate>
-
                 <DataTemplate>
-
                     <VerticalStackLayout Padding="5">
 
                         <Label Text="{Binding name_student}"/>
@@ -82,15 +78,9 @@
                         <Label Text="{Binding rfc_student}"/>
 
                         <Label Text="{Binding phone_num_student}"/>
-
                     </VerticalStackLayout>
-
                 </DataTemplate>
-
             </CollectionView.ItemTemplate>
-
         </CollectionView>
-
     </VerticalStackLayout>
-
 </ContentPage>
