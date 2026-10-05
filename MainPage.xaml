@@ -64,6 +64,11 @@
                 Clicked="OnChange"
                 Grid.Column="1"
                 Grid.Row="2"/>
+            <Label
+                x:Name="error_Mark"
+                Text=""
+                Grid.Column="1"
+                Grid.Row="3"/>
         </Grid>
 
         <CollectionView x:Name="StudentsCollection"

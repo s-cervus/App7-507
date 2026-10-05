@@ -28,7 +28,11 @@ public partial class MainPage : ContentPage
     private async void OnSaveClicked(object sender, EventArgs e)
     {
 
-        if (string.IsNullOrWhiteSpace(nombreEntry.Text)) { return; }
+        if (string.IsNullOrWhiteSpace(nombreEntry.Text))
+        { 
+            return;
+            // error_Mark.Text = "Error: Ingrese un mobre primero.";
+        }
         if (phoneEntry == null || phoneEntry.Text.Length > 10) { return; }
 
         grupoEntry.Text = string.IsNullOrWhiteSpace(grupoEntry.Text) ? "No especifica Grupo." : grupoEntry.Text;
