@@ -66,7 +66,9 @@
                 Grid.Row="2"/>
         </Grid>
 
-        <CollectionView x:Name="StudentsCollection">
+        <CollectionView x:Name="StudentsCollection"
+                        SelectionMode="Single"
+                        SelectionChanged="OnSelectionChanged">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <VerticalStackLayout Padding="5">

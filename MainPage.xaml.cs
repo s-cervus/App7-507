@@ -8,6 +8,7 @@ namespace App7_507;
 public partial class MainPage : ContentPage
 {
     DatabaseService database;
+    Student selectedStudent = null;
 
     public MainPage(DatabaseService db)
     {
@@ -27,12 +28,15 @@ public partial class MainPage : ContentPage
     private async void OnSaveClicked(object sender, EventArgs e)
     {
 
-        
-        if (phoneEntry == null || phoneEntry.Text.Length != 10)
-        {
+        if (string.IsNullOrWhiteSpace(nombreEntry.Text)){return;}
 
-            return;
-        }
+        grupoEntry.Text = string.IsNullOrWhiteSpace(grupoEntry.Text) ? "No especifica Grupo." : grupoEntry.Text;
+        rfcEntry.Text = string.IsNullOrWhiteSpace(rfcEntry.Text) ? "No especifica RFC." : rfcEntry.Text;
+        phoneEntry.Text = string.IsNullOrWhiteSpace(phoneEntry.Text) ? "-" : phoneEntry.Text;
+
+        if (phoneEntry == null || phoneEntry.Text.Length != 10){return;}
+        
+        
         
         // string phone_i = phoneEntry.Text; int.TryParse(phone_i, out int convertedNUM);
 
@@ -65,6 +69,36 @@ public partial class MainPage : ContentPage
         StudentsCollection.ItemsSource =
             await database.GetAll();
     }
+
+    private void OnSelectionChanged(object sender,
+    SelectionChangedEventArgs e)
+    {
+        selectedStudent =
+        e.CurrentSelection.FirstOrDefault() as Student;
+        if (selectedStudent != null)
+        {
+            nombreEntry.Text = selectedStudent.name_student;
+            grupoEntry.Text = selectedStudent.group_student;
+            rfcEntry.Text = selectedStudent.rfc_student;
+            phoneEntry.Text = selectedStudent.phone_num_student;
+        }
+    }
+    private async void OnDeleteClicked(object sender, EventArgs e)
+    {
+        if (selectedStudent != null)
+        {
+            await database.Delete(selectedStudent);
+            StudentsCollection.ItemsSource = await database.GetAll();
+            nombreEntry.Text = "";
+            grupoEntry.Text = "";
+            rfcEntry.Text = "";
+            phoneEntry.Text = "";
+
+
+            selectedStudent = null;
+        }
+    }
 }
+
 
 
