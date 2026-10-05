@@ -41,7 +41,7 @@
             <Entry
                 x:Name="phoneEntry"
                 Placeholder="Télefono"
-                Keyboard="Chat"
+                Keyboard="Numeric"
                 MaxLength="10"
                 Grid.Column="0"
                 Grid.Row="3"/>
@@ -55,13 +55,13 @@
 
             <Button
                 Text="Borrar"
-                Clicked="OnSaveClicked"
+                Clicked="OnDeleteClicked"
                 Grid.Column="1"
                 Grid.Row="1"/>
 
             <Button
                 Text="Modificar"
-                Clicked="OnSaveClicked"
+                Clicked="OnChange"
                 Grid.Column="1"
                 Grid.Row="2"/>
         </Grid>
@@ -71,7 +71,7 @@
                         SelectionChanged="OnSelectionChanged">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <VerticalStackLayout Padding="5">
+                    <VerticalStackLayout Padding="20">
 
                         <Label Text="{Binding name_student}"/>
 

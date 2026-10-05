@@ -20,7 +20,7 @@ public partial class MainPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        
+
         StudentsCollection.ItemsSource =
         await database.GetAll();
     }
@@ -28,16 +28,16 @@ public partial class MainPage : ContentPage
     private async void OnSaveClicked(object sender, EventArgs e)
     {
 
-        if (string.IsNullOrWhiteSpace(nombreEntry.Text)){return;}
+        if (string.IsNullOrWhiteSpace(nombreEntry.Text)) { return; }
+        if (phoneEntry == null || phoneEntry.Text.Length > 10) { return; }
 
         grupoEntry.Text = string.IsNullOrWhiteSpace(grupoEntry.Text) ? "No especifica Grupo." : grupoEntry.Text;
         rfcEntry.Text = string.IsNullOrWhiteSpace(rfcEntry.Text) ? "No especifica RFC." : rfcEntry.Text;
-        phoneEntry.Text = string.IsNullOrWhiteSpace(phoneEntry.Text) ? "-" : phoneEntry.Text;
+        phoneEntry.Text = string.IsNullOrWhiteSpace(phoneEntry.Text) ? "No especifica Número." : phoneEntry.Text;
 
-        if (phoneEntry == null || phoneEntry.Text.Length != 10){return;}
-        
-        
-        
+
+
+
         // string phone_i = phoneEntry.Text; int.TryParse(phone_i, out int convertedNUM);
 
         /*
@@ -98,7 +98,39 @@ public partial class MainPage : ContentPage
             selectedStudent = null;
         }
     }
+
+    private async void OnChange(object sender, EventArgs e)
+    {
+
+        if (selectedStudent != null)
+        {
+            await database.Delete(selectedStudent);
+            StudentsCollection.ItemsSource = await database.GetAll();
+            OnSaveClicked(null, null);
+
+            selectedStudent = null;
+        }
+    }
 }
 
+    /*
+    private async void OnSelect(object sender, EventArgs e)
+    {
+        if (nombreEntry.IsReadOnly)
+        {
+            nombreEntry.IsReadOnly = false;
+            grupoEntry.IsReadOnly = false;
+            rfcEntry.IsReadOnly = false;
+            phoneEntry.IsReadOnly = false;
+        }
+        else
+        {
+            nombreEntry.IsReadOnly = true;
+            grupoEntry.IsReadOnly = true;
+            rfcEntry.IsReadOnly = true;
+            phoneEntry.IsReadOnly = true;
+        }
+        
+    }
 
-
+*/
