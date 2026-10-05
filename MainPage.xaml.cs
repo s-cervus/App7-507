@@ -26,27 +26,26 @@ public partial class MainPage : ContentPage
 
     private async void OnSaveClicked(object sender, EventArgs e)
     {
+
+        
+        if (phoneEntry == null || phoneEntry.Text.Length != 10)
+        {
+
+            return;
+        }
+        
         // string phone_i = phoneEntry.Text; int.TryParse(phone_i, out int convertedNUM);
 
-/*
-        if (phoneEntry == null || phoneEntry.Length != 10)
-        {
-            return;
-        }
-
-        
+        /*
         // ^ = inicio, \d = número, {10} = exactamente diez veces, $ = fin
-        if (!Regex.IsMatch(textoIngresado, @"^\d{10}$"))
+        if (!Regex.IsMatch(phoneEntry, @"^\d{10}$"))
         {
-            
+
             return;
         }
-*/
-        
-        long numeroFinal = long.Parse(textoIngresado);
 
-        
-
+        long numeroFinal = long.Parse(phoneEntry.Text);
+        */
 
         Student Student = new()
         {
