@@ -11,29 +11,60 @@
             FontSize="24"
             HorizontalOptions="Center"/>
 
-        <Entry
-            x:Name="nombreEntry"
-            Placeholder="Nombre"/>
 
-        <Entry
-            x:Name="grupoEntry"
-            Placeholder="Grupo"/>
+        <Grid
+            ColumnDefinitions="*,*"
+            RowDefinitions="*,*,*,*,*"
+            RowSpacing="10"
+            ColumnSpacing="5">
+            
 
-        <Entry
-            x:Name="rfcEntry"
-            Placeholder="RFC"
-            MaxLength="18"/>
+            <Entry
+                x:Name="nombreEntry"
+                Placeholder="Nombre"
+                Grid.Column="0"
+                Grid.Row="0"/>
 
-        <Entry
-            x:Name="phoneEntry"
-            Placeholder="Télefono"
-            Keyboard="Chat"
-            MaxLength="10"/>
+            <Entry
+                x:Name="grupoEntry"
+                Placeholder="Grupo"
+                Grid.Column="0"
+                Grid.Row="1"/>
+
+            <Entry
+                x:Name="rfcEntry"
+                Placeholder="RFC"
+                MaxLength="18"
+                Grid.Column="0"
+                Grid.Row="2"/>
+    
+            <Entry
+                x:Name="phoneEntry"
+                Placeholder="Télefono"
+                Keyboard="Chat"
+                MaxLength="10"
+                Grid.Column="0"
+                Grid.Row="3"/>                
 
 
-        <Button
-        Text="Guardar"
-        Clicked="OnSaveClicked"/>
+            <Button
+                Text="Guardar"
+                Clicked="OnSaveClicked"
+                Grid.Column="1"
+                Grid.Row="0"/>
+
+            <Button
+                Text="Borrar"
+                Clicked="OnSaveClicked"
+                Grid.Column="1"
+                Grid.Row="1"/>
+
+            <Button
+                Text="Modificar"
+                Clicked="OnSaveClicked"
+                Grid.Column="1"
+                Grid.Row="2"/>
+        </Grid>
 
         <CollectionView
         x:Name="StudentsCollection">
